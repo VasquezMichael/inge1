@@ -1,0 +1,101 @@
+{
+  "main": {
+    "id": "56c1a90ad2cfd815",
+    "type": "split",
+    "children": [
+      {
+        "id": "ee4e68592760507c",
+        "type": "leaf",
+        "state": {
+          "type": "image",
+          "state": {
+            "file": "Problema 2/Diagrama.png"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7717eaabc9f66868",
+    "type": "split",
+    "children": [
+      {
+        "id": "5a58f3ad605fc909",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ab3f6b9b6716ec05",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "a5d1309eed7b77f0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 175
+  },
+  "right": {
+    "id": "cd979a9f3b8a34bf",
+    "type": "split",
+    "children": [
+      {
+        "id": "df6fdf9ffb067684",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a13c08cb10c56a23",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Problema 2/Diagrama.png",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "ee4e68592760507c",
+  "lastOpenFiles": [
+    "Problema 2/Diagrama.png",
+    "Problema 1/Cerrar sesion.md",
+    "Problema 1/Iniciar Sesion.md",
+    "Problema 2/Problema 2.md",
+    "Problema 1/Pago de la reserva.md",
+    "Problema 1/Realizar reserva.md",
+    "Problema 2/Inscripcion a las carreras.md",
+    "Problema 2/Cargar las carreras.md",
+    "Problema 2/Untitled.md",
+    "Problema 1/Problema 1.md"
+  ]
+}

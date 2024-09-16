@@ -1,0 +1,200 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang3082{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang10\par
+Problema 7: Mutual\par
+Una mutual necesita automatizar el manejo de las prestaciones que ofrece a sus afiliados.\par
+Una persona puede afiliarse s\'f3lo si posee una tarjeta de cr\'e9dito para que se pueda hacer el pago de la cuota mensual autom\'e1ticamente. Una vez que la persona se ha afiliado, puede pasar a tener a cargo a su pareja e hijos (hasta 18 a\'f1os, luego es dado de baja). A cada uno se le otorga un n\'famero de afiliado.\par
+Las prestaciones que brinda, siempre y cuando est\'e9 asentado el pago del mes anterior al que es solicitado, son:\par
+- Ortodoncia: Se reconoce s\'f3lo una y a los afiliados menores de 15 a\'f1os que est\'e9n afiliados desde al menos nueve meses. Debe presentarse historia cl\'ednica elaborado por el profesional.\par
+- Plantillas: A cualquier afiliado, hasta dos por a\'f1o calendario. Debe presentarse la indicaci\'f3n del profesional y factura del comercio que la confeccion\'f3.\par
+- Anteojos: A cualquier afiliado con fecha de afiliaci\'f3n superior a tres meses, un par cada 18 meses.\par
+- Internaci\'f3n: A cualquier afiliado, sin l\'edmite.\par
+- Consultas m\'e9dicas: A cualquier afiliado, hasta 2 por mes.\par
+\par
+ID: Afiliarse a la mutual\par
+TITULO: COMO persona QUIERO afiliarme PARA PODER acceder a la mutual\par
+REGLAS DE NEGOCIO: Necesita tarjeta de cr\'e9dito\par
+\par
+CRITERIOS DE ACEPTACI\'d3N: Utilizar tarjeta como medio de pago\par
+Escenario 1: Afiliaci\'f3n exitosa.\par
+\tab Dado que Juan Sanchez tiene una tarjeta de cr\'e9dito al d\'eda, de n\'famero 1234,\par
+\tab Cuando Juan Sanchez ingresa el n\'famero de tarjeta 1234,\par
+\tab Entonces la persona logra su afiliaci\'f3n a la mutual.\par
+\par
+Escenario 2: \lang11274 La tarjeta de cr\'e9dito se encuentra vencida\par
+\tab Dado que Juan Sanchez tiene una tarjeta que est\'e1 caducada, de n\'famero 1234,\par
+\tab Cuando Juan Sanchez ingresa el n\'famero de tarjeta 1234,\par
+\tab Entonces el sistema rechaza su solicitud de afiliaci\'f3n, por encontrarse vencida.\par
+\par
+Escenario 3: La tarjeta de cr\'e9dito alcanz\'f3 su l\'edmite\par
+\tab Dado que Juan Sanchez tiene una tarjeta que alcanz\'f3 su l\'edmite de consumo, de \tab c\'f3digo 1234,\par
+\tab Cuando Juan Sanchez ingresa el n\'famero de tarjeta 1234\par
+\tab Entonces el sistema rechaza su solicitud de afiliaci\'f3n, por no tener cupo para debitar \tab el pago.\par
+\par
+Escenario 4: El solicitante ingres\'f3 incorrectamente los datos de su tarjeta\par
+\tab Dado que Juan Sanchez tiene una tarjeta de cr\'e9dito al d\'eda, con el n\'famero 1234\par
+\tab Cuando Juan Sanchez ingresa el n\'famero 2312\par
+\tab Entonces el sistema rechaza su solicitud por no concidir los datos de su tarjeta.\par
+\par
+Escenario 5: El solicitante no tiene tarjeta de cr\'e9dito\par
+\tab Dado que Juan Sanchez no tiene una tarjeta,\par
+\tab Entonces el sistema no puede procesar su solicitud de afiliaci\'f3n.\par
+\par
+\par
+ID: Afiliar a su pareja, bajo su cargo\par
+TITULO: COMO afiliado, QUIERO aflilar a mi pareja PARA PODER el/ella acceder a la mutual\par
+REGLAS DE NEGOCIO:  NINGUNA\par
+\par
+Escenario 1: Afilici\'f3n de pareja exitosa\par
+\tab Dado que el afiliado tiene una pareja de nombre Mar\'eda Gonzales,\par
+\tab Cuando afiliado ingresa el nombre Mar\'eda Gonzales como nombre de su pareja, \par
+\tab Entonces el sistema la registra y le devuelve su n\'famero de afiliado correspondiente.\par
+\par
+ID: Afiliar a un hijo/a, bajo su cargo.\par
+TITULO: COMO afiliado, QUIERO afiliar a mi pareja PARA PODER el/ella acceder a la mutual\par
+REGLAS DE NEGOCIO: El hijo/a debe ser menor de 18 a\'f1os.\par
+\par
+Escenario 1: Afiliaci\'f3n de hijo/a exitosa.\par
+\tab Dado que el afiliado tiene una hija de nombre Carla Sanchez, de 15 a\'f1os de edad,\par
+\tab Cuando el afiliado ingresa el nombre Carla Sanchez y la edad 15,\par
+\tab Entonces el sistema la registra y le devuelve su n\'famero de afiliado correspondiente.\par
+\par
+Escenario 2: Afiliaci\'f3n de hijo/a rechazada, por ser mayor de 18 a\'f1os\par
+\tab Dado que el afiliado tiene un hijo Marcos Sanchez, de 19 a\'f1os de edad,\par
+\tab Cuando el afiliado ingresa el nombre Marcos Sanchez y la edad 19\par
+\tab Entonces el sistema rechaza su solicitud de afiliaci\'f3n.\par
+\par
+\b ID: Baja del hijo/a de un afiliado por superar los 18 a\'f1os de edad\par
+\b0 TITULO: \par
+\par
+ID: Solicitar una prestaci\'f3n\par
+TITULO: COMO afiliado, QUIERO acceder al sistema PARA PODER solicitar una prestaci\'f3n.\b\par
+\b0 REGLAS DE NEGOCIO: Tener pago el mes anterior al solicitado.\par
+\par
+Escenario 1: Solicitud de prestaci\'f3n exitosa.\par
+\tab Dado que el afiliado tiene pago el mes anterior\par
+\tab Cuando el afiliado solicita una prestaci\'f3n\par
+\tab Entonces el sistema verifica el estado de pago del mes anterior, y le da acceso a las \tab prestaciones disponibles.\par
+\par
+Escenario 2: Solicitud de prestaci\'f3n rechazada\par
+\tab Dado que el afiliado tiene no tiene pago el mes anterior\par
+\tab Cuando el afiliado solicita una prestaci\'f3n\par
+\tab Entonces el sistema verifica el estado de pago del mes anterior, y le rechaza la \tab solicitud por encontrarse impago.\par
+\par
+ID: Solicitar una prestaci\'f3n de Ortodoncia.\par
+\b T\'cdTULO: COMO afiliado, QUIERO \b0\par
+REGLAS DE NEGOCIO: Solo se reconoce una. A los menores de 15 a\'f1os que lleven al menos 9 meses afiliado. Tiene que estar acompa\'f1ado de una Historia Cl\'ednica confeccionada por un profesional.\par
+\par
+Escenario 1: Solicitud de Ortodoncia (por un menor de 15 a\'f1os) exitosa.\par
+\tab Dado que el afiliado tiene 13 a\'f1os y lleva afiliado 15 meses, nunca se ha realizado\tab una ortodoncia en la mutual y tiene una Historia Cl\'ednica realizada por un \tab profesional.\par
+\tab Cuando el afiliado carga su Historia Cl\'ednica en el sistema, el mismo verifica la \tab cantidad de Ortodoncias realizadas, su edad y su antiguedad en la mutual.\par
+\tab Entonces el sistema aprueba su solicitud de Ortodoncia.\par
+\par
+Escenario 2: Solicitud de Ortodoncia (por un mayor de 15 a\'f1os) exitosa.\par
+\tab Dado que el afiliado tiene 23 a\'f1os, nunca se ha realizado una Ortodoncia en la \tab mutual y tiene una Historia Cl\'ednica realizada por un profesional.\par
+\tab Cuando el afiliado carga la Historia Cl\'ednica, y el mismo verifica la cantidad de \tab Ortodoncias realizadas y su edad.\par
+\tab Entonces el sistema aprueba su solicitud de Ortodoncia.\par
+\par
+Escenario 3: Solicitud de Ortodoncia por un menor de 15 a\'f1os con menos de 9 meses de antiguedad.\par
+\tab Dado que el afiliado tiene 14 a\'f1os y lleva afiliado 6 meses afiliado, nunca se ha \tab realizado una ortodoncia en la mutual y tiene una Historia Cl\'ednica realizada por un \tab profesional.\par
+\tab Cuando el afiliado carga su Historia Cl\'ednica en el sistema, el mismo verifica la \tab cantidad de Ortodoncias realizadas, su edad y su antiguedad en la mutual.\par
+\tab Entonces el sistema rechaza su solicitud de Ortodoncia, por no cumplir con los \tab meses m\'ednimos de afiliaci\'f3n siendo menor de 15 a\'f1os.\par
+\par
+Escenario 4: Solicitud de Ortodoncia por un menor de 15 a\'f1os con al menos 9 meses de antiguedad, con una Ortodoncia ya realizada y una Historia Cl\'ednica realizada por un Profesional\par
+\tab Dado que el afiliado tiene 13 a\'f1os y lleva afiliado 15 meses, ya se ha realizado una\tab ortodoncia en la mutual y tiene una Historia Cl\'ednica realizada por un profesional.\par
+\tab Cuando el afiliado carga la Historia Cl\'ednica, y el mismo verifica la cantidad de \tab Ortodoncias realizadas y su edad.\par
+\tab Entonces el sistema rechaza su solicitud de Ortodoncia, por no cumplir con la \tab cantidad de Ortodoncias m\'e1ximas realizadas.\par
+\par
+Escenario 5: Solicitud de Ortodoncia por un menor de 15 a\'f1os con al menos 9 meses de antiguedad, sin Ortodoncias realizadas y sin Historia Cl\'ednica realizada por un profesional.\par
+\tab Dado que el afiliado tiene 13 a\'f1os y lleva afiliado 15 meses, nunca se ha realizado\tab una ortodoncia en la mutual y NO tiene una Historia Cl\'ednica realizada por un \tab profesional.\par
+\tab Entonces el sistema rechaza su solicitud de Ortodoncia, por no poseer una Historia \tab Cl\'ednica realizada por un profesional.\par
+\par
+Escenario 6: Solicitud de Ortodoncia por un mayor de 15 a\'f1os, con una Ortodoncia ya realizada y con una Historia Cl\'ednica realizada por un profesional.\par
+\tab Dado que el afiliado tiene 23 a\'f1os, ya se ha realizado una Ortodoncia en la \tab mutual y tiene una Historia Cl\'ednica realizada por un profesional.\par
+\tab Cuando el afiliado carga la Historia Cl\'ednica, y el mismo verifica la cantidad de \tab Ortodoncias realizadas y su edad.\par
+\tab Entonces el sistema rechaza su solicitud de Ortodoncia, por no cumplir con la \tab cantidad de Ortodoncias m\'e1ximas realizadas.\par
+\par
+Escenario 7: Solicitud de Ortodoncia por un mayor de 15 a\'f1os, sin Ortodoncias ya realizadas y sin una Historia Cl\'ednica realizada por un profesional.\par
+\tab Dado que el afiliado tiene 23 a\'f1os, nunca se ha realizado una Ortodoncia en la \tab mutual y NO tiene una Historia Cl\'ednica realizada por un profesional.\par
+\tab Entonces el sistema rechaza su solicitud de Ortodoncia, por no poseer una Historia \tab Cl\'ednica realizada por un profesional.\par
+\par
+ID: Solicitar prestaci\'f3n de Plantillas\b\par
+T\'cdTULO: COMO afiliado, QUIERO\par
+\b0 REGLAS DE NEGOCIO: Hasta dos por a\'f1o calendario. Debe presentar indicaci\'f3n del profesional. Debe presentar factura del comercio que confeccion\'f3 la plantilla.\par
+\par
+Escenario 1: Solicitud de Plantillas por un afiliado que NO solicit\'f3 una Plantilla durante el a\'f1o calendario.\par
+\tab Dado que el afiliado NO solicit\'f3 una plantilla en el a\'f1o calendario, tiene una \tab indicaci\'f3n realizada por un profesional y la factura del comericio que confeccion\'f3 la \tab plantilla.\par
+\tab Cuando el afiliado carga en el sistema la indicaci\'f3n realizada por el profesional y\tab carga la factura \tab del comercio que realiz\'f3 la confecci\'f3n de la plantilla, el sistema \tab\tab verifica la cantidad de plantillas realizadas el a\'f1o calendario actual.\par
+\tab Entonces el sistema aprueba su solicitud de Plantillas\par
+\b\par
+\b0 Escenario 2: Solicitud de Plantillas por un afiliado que YA solicit\'f3 UNA Plantilla durante el a\'f1o calendario.\par
+\tab Dado que el afiliado YA solicit\'f3 una plantilla en el a\'f1o calendario, tiene una \tab indicaci\'f3n realizada por un profesional y la factura del comericio que confeccion\'f3 la \tab plantilla.\par
+\tab Cuando el afiliado carga en el sistema la indicaci\'f3n realizada por el profesional y\tab carga la factura \tab del comercio que realiz\'f3 la confecci\'f3n de la plantilla, el sistema \tab\tab verifica la cantidad de plantillas realizadas el a\'f1o calendario actual.\par
+\tab Entonces el sistema aprueba su solicitud de Plantillas\par
+\par
+Escenario 3: Solicitud de Plantillas por un afiliado que YA solicit\'f3 DOS Plantilla durante el a\'f1o calendario.\par
+\tab Dado que el afiliado YA solicit\'f3 DOS plantilla en el a\'f1o calendario, tiene una \tab indicaci\'f3n realizada por un profesional y la factura del comericio que confeccion\'f3 la \tab plantilla.\par
+\tab Cuando el afiliado carga en el sistema la indicaci\'f3n realizada por el profesional y\tab carga la factura \tab del comercio que realiz\'f3 la confecci\'f3n de la plantilla, el sistema \tab\tab verifica la cantidad de plantillas realizadas el a\'f1o calendario actual.\par
+\tab Entonces el sistema rechaza su solicitud de Plantillas, ya que no cumple con la \tab cantidad m\'e1ximas de Plantillas solicitadas por a\'f1o calendario.\par
+\par
+Escenario 4: Solicitud de Plantillas por un afiliado que solicit\'f3 UNA O MENOS plantillas durante el actual a\'f1o calendario, tiene una indicaci\'f3n realizada por un profesional y NO tiene la factura del comercio que confeccion\'f3 la plantilla.\par
+\tab Dado que el afiliado solicit\'f3 UNA O MENOS plantillas en el a\'f1o calendario actual,\tab tiene una indicaci\'f3n realizada por un profesional y NO POSE\'c9 la factura del\tab comericio que confeccion\'f3 la plantilla.\par
+\tab Cuando el afiliado carga en el sistema la indicaci\'f3n realizada por el profesional y NO\tab carga la factura \tab del comercio que realiz\'f3 la confecci\'f3n de la plantilla\par
+\tab Entonces el sistema rechaza su solicitud de Plantillas, ya que no pose\'e9 la factura del \tab comercio que realiz\'f3 la confecci\'f3n de la plantilla.\par
+\par
+Escenario 5: Solicitud de Plantillas por un afiliado que solicit\'f3 UNA O MENOS plantillas durante el actual a\'f1o calendario, NO tiene una indicaci\'f3n realizada por un profesional y  tiene la factura del comercio que confeccion\'f3 la plantilla.\par
+\tab Dado que el afiliado solicit\'f3 UNA O MENOS plantillas en el a\'f1o calendario actual,\tab NO TIENE una indicaci\'f3n realizada por un profesional y pose\'e9 la factura del\tab comericio que confeccion\'f3 la plantilla\par
+\tab Cuando el afiliado NO carga en el sistema la indicaci\'f3n realizada por el profesional.\par
+\tab Entonces el sistema rechaza su solicitud de Plantillas, ya que no pose\'e9 una\tab indicaci\'f3n realizada por un profesional.\par
+\par
+ID: Solicitar prestaci\'f3n de Antojos\par
+\b T\'cdTULO: COMO afiliado, \par
+\b0 REGLAS DE NEGOCIO: Antiguedad de m\'e1s de 3 meses. Un par cada 18 meses\par
+\par
+Escenario 1: Solicitud de Anteojos, por un afiliado con m\'e1s de 3 meses de antiguedad en la mutual, y que no solicit\'f3 Anteojos durante los \'faltimos 18 meses.\par
+\tab Dado que el afiliado lleva como m\'ednimo 3 meses en la mutual y no solicit\'f3 Anteojos\tab en los \'faltimos 18 meses.\par
+\tab Cuando el afiliado solicita la prestaci\'f3n de Anteojos en el sistema, el mismo verifica\tab la antiguedad en la mutual y la cantidad de Anteojos solicitados en los \'faltimos 18\tab meses\par
+\tab Entonces el sistema aprueba su solicitud de Anteojos\par
+\par
+Escenario 2: Solicitud de Anteojos, por un afiliado con MENOS de 3 meses de antiguedad en la mutual, y que NO solicit\'f3 Anteojos durante los \'faltimos 18 meses.\par
+\tab Dado que el afiliado lleva MENOS de 3 meses en la mutual y no solicit\'f3 Anteojos en\tab los \'faltimos 18 meses\par
+\tab Cuando el afiliado solicita la prestaci\'f3n de Anteojos en el sistema, el mismo verifica\tab la antiguedad en la mutual y la cantidad de Anteojos solicitados en los \'faltimos 18\tab meses\par
+\tab Entonces el sistema rechaza su solicitud de Anteojos, por no cumplir con los meses \tab m\'ednimos de antiguedad en la mutual\par
+\par
+Escenario 3: Solicitud de Anteojos, por un afiliado con M\'c1S de 3 meses de antiguedad en la mutual, y que YA solicit\'f3 Anteojos durante los \'faltimos 18 meses.\par
+\tab Dado que el afiliado lleva como m\'ednimo 3 meses en la mutual y YA solicit\'f3 Anteojos\tab en los \'faltimos 18 meses.\par
+\tab Cuando el afiliado solicita la prestaci\'f3n de Anteojos en el sistema, el mismo verifica\tab la antiguedad en la mutual y la cantidad de Anteojos solicitados en los \'faltimos 18\tab meses\par
+\tab Entonces el sistema rechaza su solicitud de Anteojos, por no cumplir con los meses \tab m\'ednimos entre solicitud y solicitud\par
+\par
+ID: Solicitar prestaci\'f3n de Internaci\'f3n\par
+\b T\'cdTULO: COMO afiliado, \par
+\b0 REGLAS DE NEGOCIO: Ninguna\par
+\par
+Escenario 1: Solicitud de Internaci\'f3n, por parte de un afiliado\par
+\tab Dado que es un afiliado de la mutual\par
+\tab Cuando el afiliado solicita una prestaci\'f3n de Internaci\'f3n\par
+\tab Entonces el sistema aprueba su solicitud de Internaci\'f3n\par
+\par
+ID: Solicitar prestaci\'f3n de Consultas M\'e9dicas\par
+\b T\'cdTULO: COMO afiliado\b0\par
+REGLAS DE NEGOCIO: Solo 2 Consultas M\'e9dicas por mes\par
+\par
+Escenario 1: Solicitud de Consulta M\'e9dica, por parte de un afiliado que NO solicit\'f3 ninguna Consulta durante el mes actual.\par
+\tab Dado que el afiliado NO ha solicitado una consulta durante el mes actual.\par
+\tab Cuando el afiliado solicita una prestaci\'f3n de Consulta M\'e9dica al sistema, el mismo \tab comprueba la cantidad de consultas solicitadas durante el mes actual.\par
+\tab Entonces el sistema aprueba su solicitud de Consulta M\'e9dica.\par
+\par
+Escenario 2: Solicitud de Consulta M\'e9dica, por parte de un afiliado que YA solicit\'f3 UNA Consulta durante el mes actual.\par
+\tab Dado que el afiliado YA ha solicitado UNA consulta durante el mes actual.\par
+\tab Cuando el afiliado solicita una prestaci\'f3n de Consulta M\'e9dica al sistema, el mismo \tab comprueba la cantidad de consultas solicitadas durante el mes actual.\par
+\tab Entonces el sistema aprueba su solicitud de Consulta M\'e9dica.\par
+\par
+Escenario 3: Solicitud de Consulta M\'e9dica, por parte de un afiliado que YA solicit\'f3 DOS Consultas durante el mes actual.\par
+\tab Dado que el afiliado YA ha solicitado DOS consultas durante el mes actual.\par
+\tab Cuando el afiliado solicita una prestaci\'f3n de Consulta M\'e9dica al sistema, el mismo \tab comprueba la cantidad de consultas solicitadas durante el mes actual.\par
+\tab Entonces el sistema rechaza su solicitud de Consulta M\'e9dica, ya que excedi\'f3 la\tab cantidad de solicitudes de Consultas en el mes actual.\par
+\b\par
+\b0\par
+\par
+}
+ 

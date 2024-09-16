@@ -1,0 +1,102 @@
+{
+  "main": {
+    "id": "221469ff537345ab",
+    "type": "split",
+    "children": [
+      {
+        "id": "84e8e2ea7d888b4d",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Problema 2/cargar las carreras.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "044af8b5c311e350",
+    "type": "split",
+    "children": [
+      {
+        "id": "11d5228a2e6ebb3a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4f80e3d144a833bc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "6a4ca1614811ea49",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 199
+  },
+  "right": {
+    "id": "e6063537dfad55a4",
+    "type": "split",
+    "children": [
+      {
+        "id": "634af69c4eb90928",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f08d0b89712bf9b1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Problema 2/cargar las carreras.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "84e8e2ea7d888b4d",
+  "lastOpenFiles": [
+    "Problema 2/cargar las carreras.md",
+    "Problema-2/Cargar las carreras.md",
+    "Problema-2/Autentificarme.md",
+    "Problema 2/autentificarme.md",
+    "Problema-1/autentificarme.md",
+    "Problema 1/iniciar sesión.md",
+    "Problema 1/cerrar sesión.md",
+    "Problema-1/cerrar sesión.md",
+    "Problema 1/dar de alta.md",
+    "Problema-1/Dar de alta.md"
+  ]
+}
